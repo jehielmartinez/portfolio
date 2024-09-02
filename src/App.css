@@ -1,0 +1,294 @@
+.main_container{
+  margin: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+}
+.profile_section{
+  flex: 1;
+  margin: 5px 15px;
+}
+.career_section{
+  flex: 2;
+  margin: 5px 15px;
+}
+
+@media only screen and (max-width: 650px){
+  .main_container {
+      flex-direction: column;
+      margin: 20px 2%;
+      align-items: center;
+  }
+  .profile_section{
+      flex: 1;
+  }
+  .career_section{
+      flex: 1;
+  }
+  .project-modal__content{
+      flex-direction: column;
+      width: 90vw;
+  }
+  .project-modal__content--description{
+      margin-top: 10px;
+  }
+  .education-card__slideshow{
+      flex-direction: column;
+  }
+}
+.mycard {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+.mycard__header {
+  background-color: #003d5b;
+  color: white;
+  height: 60px;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+}
+.mycard__header h2{
+  font-size: 22px;
+  margin: 0;
+}
+
+/* PROFILE CARD */
+.profile_card img{
+  width: 100%;
+}
+
+.profile_card__info{
+  background-color: #F7F7F7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+.profile_card__info--name{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.profile_card__info--label{
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+.profile_card__info--location{
+  font-size: 14px;
+  text-align: center;
+}
+
+.profile-card__social{
+  padding: 15px;
+}
+.profile-card__social ul{
+  display: flex;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.profile-card__social li{
+  margin: 5px 8px;
+}
+.profile-card__social a{
+  text-decoration: none;
+  font-size: 30px;
+  transition: font-size .3s ease;
+}
+.profile-card__social a:hover{
+  font-size: 45px;
+}
+.profile-card__social--icon-github{
+  color: black;  
+}
+.profile-card__social--icon-twitter{
+  color: #1DA1F2;
+}
+
+/* TWITTER CARD */
+.twitter-card{
+  padding: 20px;
+}
+
+/* SKILLS CARD */
+.skills-card__skills{
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.skills-card__skills--element{
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: #F7F7F7;
+  font-weight: bold;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+.skills-card__skills--element:hover{
+  transform: scale(1.2);
+}
+
+.download-section {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+.download-button {
+  background-color: #003d5b;
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.download-button:hover {
+  background-color: rgba(0,61,91,0.9);
+}
+
+.about-card__content {
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.about-card__text {
+  text-align: justify;
+}
+
+.about-card__text em{
+  font-weight: bold;
+}
+
+/* PROJECTS-CARD */
+.projects-card__slideshow{
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.projects-card__project{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 400ms;
+}
+.projects-card__project:hover{
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+}
+.projects-card__project img{
+  width: 100%;
+}
+.projects-card__project h3{
+  font-size: 18px;
+  background-color: #F7F7F7;
+  height: 40px;
+  margin: 0;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.education-card__slideshow{
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* EXPERIENCE-CARD */
+.experience-card__slideshow{
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.experience-card__experience--header{
+  background-color: #F7F7F7;
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.experience-card__experience--header img{
+  width: 100px;
+  padding: 10px;
+}
+.experience-card__experience--header h5{
+  margin: 0;
+}
+.experience-card__experience--header p{
+  font-size: 12px;
+  margin: 0;
+}
+.experience-card__experience--header a{
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+}
+.experience-card__experience--description{
+  padding: 0;
+  margin: 20px;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer p{
+  margin: 0;
+  color: #F7F7F7;
+}
+.footer a{
+  color: #F7F7F7;
+}
+.footer a:hover{
+  color: white;
+}
+
+/* PROJECT MODAL */
+.project-modal{
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0,0,0,0.6);
+}
+.project-modal__content{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  align-items: center;
+}
+.project-modal__content--image{
+  flex:1;
+  
+}
+.project-modal__content--image img{
+  width: 100%;
+}
+
+.project-modal__content--description{
+  flex:2;
+  padding: 0px 10px;
+}
+.project-modal__content--description h1{
+  font-size: 25px;
+}
+.project-modal__content--description p{
+  text-align: justify;
+}
+  
