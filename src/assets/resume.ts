@@ -72,13 +72,16 @@ const resume: ResumeType = {
     'NodeJS',
     'NestJS',
     'AWS Architect',
+    'Azure',
     'Docker',
     'Github Actions',
     'Pulumi',
+    'Fastlane'
   ],
-  about: ["As an experienced electrical and software engineer, I have a proven track record of designing and implementing robust solutions that leverage cutting-edge technologies. I am highly skilled in front-end frameworks such as ReactJS and VueJS, as well as mobile development with React Native.", 
-    "Additionally, I have a strong background in cloud computing, having worked extensively with AWS and Cloud Development Kit to build scalable, resilient applications.", 
-    "My expertise in creating pipelines to deploy Android and iOS applications has enabled me to streamline the development process and deliver high-quality products to end-users. I am also well-versed in building backend systems using a variety of tools and frameworks such as NestJS, NodeJS, Prisma, GraphQL, TypeORM, and Docker.",
+  about: ["As an experienced electrical and software engineer, I have a proven track record of designing and implementing robust solutions that leverage cutting-edge technologies. I am highly skilled in front-end frameworks such as **ReactJS** and **VueJS**, as well as mobile development with **React Native.**\n", 
+    "Additionally, I have a strong background in cloud computing, having worked extensively with **AWS** and **Azure** using IaC with **AWS Cloud Development Kit (CDK)** and **Pulumi**  to build scalable, resilient cloud applications.\n", 
+    "My expertise in creating pipelines to deploy **Android** and **iOS** applications has enabled me to streamline the development process and deliver high-quality products to end-users using **Fastlane** or **Bitrise**.\n",
+    "I am also well-versed in building backend systems using a variety of tools and frameworks such as **NestJS**, **NodeJS**, **Prisma**, **GraphQL**, **TypeORM**, and **Docker**. \n",
     "I am passionate about staying up-to-date with emerging trends and technologies in the field, and am committed to delivering solutions that meet or exceed clients expectations. Whether working independently or as part of a team, I bring a collaborative, results-driven approach to every project."
   ],
   experience: [
