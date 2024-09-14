@@ -39,7 +39,7 @@ export interface EducationType {
   website: string;
 }
 
-export interface ResumeType{
+export interface ResumeType {
   profile: ProfileType;
   skills: string[];
   about: string[];
@@ -78,11 +78,11 @@ const resume: ResumeType = {
     'Pulumi',
     'Fastlane'
   ],
-  about: ["As an experienced electrical and software engineer, I have a proven track record of designing and implementing robust solutions that leverage cutting-edge technologies. I am highly skilled in front-end frameworks such as **ReactJS** and **VueJS**, as well as mobile development with **React Native.**\n", 
-    "Additionally, I have a strong background in cloud computing, having worked extensively with **AWS** and **Azure** using IaC with **AWS Cloud Development Kit (CDK)** and **Pulumi**  to build scalable, resilient cloud applications.\n", 
-    "My expertise in creating pipelines to deploy **Android** and **iOS** applications has enabled me to streamline the development process and deliver high-quality products to end-users using **Fastlane** or **Bitrise**.\n",
-    "I am also well-versed in building backend systems using a variety of tools and frameworks such as **NestJS**, **NodeJS**, **Prisma**, **GraphQL**, **TypeORM**, and **Docker**. \n",
-    "I am passionate about staying up-to-date with emerging trends and technologies in the field, and am committed to delivering solutions that meet or exceed clients expectations. Whether working independently or as part of a team, I bring a collaborative, results-driven approach to every project."
+  about: [
+    "As a software engineer, I specialize in **Cloud Engineering** and **DevOps**, focusing on scalable solutions that enhance operational efficiency. My expertise encompasses extensive work with **AWS** and **Azure**, where I have utilized tools like **AWS CDK** and **Pulumi** for Infrastructure as Code (IaC) to automate the provisioning and management of cloud resources.\n",
+    "My expertise also includes automating **CI/CD pipelines** for both **Android** and **iOS** applications ensuring efficient and hassle-free app store deployments\n",
+    "In addition to my cloud and DevOps experience, I have led the development of innovative applications using **React Native** and **ReactJS**. I also have a strong foundation in backend technologies, utilizing **NestJS**, **NodeJS**, **Docker**, and serverless architectures to deliver high-quality software solutions.\n",
+    "I am passionate about utilizing technology to solve complex problems and continuously strive to improve processes through automation and innovation."
   ],
   experience: [
     {
@@ -93,9 +93,9 @@ const resume: ResumeType = {
       startDate: '1/11/2020',
       endDate: 'now',
       activities: [
-        'Developed multiple small applications tailored for managing event attendees, games, trivia, interactive museum presentations, and other event-related activities.',
         'Main cloud engineer on the migration of antiquated AWS infrastructure for a large company to a modern, scalable solution utilizing AWS CDK for Infrastructure as Code',
-        'Lead Engineer in creating a decentralized social media platform utilizing React Native and NestJS API, dockerized and deployed on Raspberry Pi SBCs and AWS EC2 servers. Responsibilities included leading and building the project, constructing the AWS infrastructure with AWS CDK, and implementing deployment automation for the entire platform using AWS services to deploy individual isolated servers on demand.'
+        'Lead Engineer in creating a decentralized social media platform utilizing React Native and NestJS API, dockerized and deployed on Raspberry Pi SBCs and AWS EC2 servers. Responsibilities included leading and building the project, constructing the AWS infrastructure with AWS CDK, and implementing deployment automation for the entire platform using AWS services to deploy individual isolated servers on demand.',
+        'Deployed multiple environments for a .NET and Angular application on Azure services, utilizing Pulumi for Infrastructure as Code (IaC) to provision and configure cloud resources. I implemented continuous delivery (CD) pipelines using GitHub Actions, automating the build, test, and deployment workflows.'
       ]
     },
     {
