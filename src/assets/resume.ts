@@ -76,7 +76,9 @@ const resume: ResumeType = {
     'Docker',
     'Github Actions',
     'Pulumi',
-    'Fastlane'
+    'Fastlane',
+    'Kubernetes',
+    'ArgoCD',
   ],
   about: [
     "As a software engineer, I specialize in **Cloud Engineering** and **DevOps**, focusing on scalable solutions that enhance operational efficiency. My expertise encompasses extensive work with **AWS** and **Azure**, where I have utilized tools like **AWS CDK** and **Pulumi** for Infrastructure as Code (IaC) to automate the provisioning and management of cloud resources.\n",
