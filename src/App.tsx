@@ -9,6 +9,7 @@ import Experience from './components/Experience';
 import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
 import './App.css';
+import Badges from './components/Badges';
 
 export default function App(): JSX.Element {
   const [resume] = useState<ResumeType>(resumeData);
@@ -32,7 +33,7 @@ export default function App(): JSX.Element {
     return null;
   };
 
-  const { profile, skills, about, experience } = resume;
+  const { profile, skills, about, experience, badges } = resume;
 
   return (
     <>
@@ -40,6 +41,7 @@ export default function App(): JSX.Element {
         {renderProjectModal()}
         <section className="profile_section">
           <Profile profile={profile} />
+          <Badges badges={badges} />
           <Skills skills={skills} />
           {/* <Twitter /> */}
           <DownloadButton />

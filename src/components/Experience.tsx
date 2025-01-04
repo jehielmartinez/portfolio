@@ -25,7 +25,7 @@ export default function Experience({ experience = [] }: ExperienceProps): JSX.El
                   {job.company}
                 </a>
                 <p>
-                  {job.startDate} - {job.endDate}
+                  {job.duration}
                 </p>
               </div>
             </header>

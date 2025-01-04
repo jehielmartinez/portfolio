@@ -1,11 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons';
 import {
-  faTwitter,
   faDev,
   faGithub,
   faLinkedin,
-  faCodepen
 } from '@fortawesome/free-brands-svg-icons';
 import { ProfileType } from '../assets/resume';
 
@@ -21,10 +19,8 @@ export default function Profile({ profile }: ProfileProps): JSX.Element {
     location,
     github,
     dev,
-    twitter,
     email,
     linkedin,
-    codepen,
     picture
   } = profile;
 
@@ -53,15 +49,6 @@ export default function Profile({ profile }: ProfileProps): JSX.Element {
           <li>
             <a
               rel="noopener noreferrer"
-              href={`https://twitter.com/${twitter}`}
-              target="_blank"
-            >
-              <FontAwesomeIcon color="#1DA1F2" icon={faTwitter} />
-            </a>
-          </li>
-          <li>
-            <a
-              rel="noopener noreferrer"
               href={`https://www.linkedin.com/in/${linkedin}/`}
               target="_blank"
             >
@@ -75,15 +62,6 @@ export default function Profile({ profile }: ProfileProps): JSX.Element {
               target="_blank"
             >
               <FontAwesomeIcon color="#000000" icon={faDev} />
-            </a>
-          </li>
-          <li>
-            <a
-              rel="noopener noreferrer"
-              href={`https://codepen.io/${codepen}/pens/public`}
-              target="_blank"
-            >
-              <FontAwesomeIcon color="#5A5F73" icon={faCodepen} />
             </a>
           </li>
           <li>

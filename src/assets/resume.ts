@@ -20,6 +20,7 @@ export interface ExperienceType {
   position: string;
   startDate: string;
   endDate: string;
+  duration: string;
   activities: string[];
 }
 
@@ -39,10 +40,17 @@ export interface EducationType {
   website: string;
 }
 
+export interface BadgeType {
+  name: string;
+  image: string;
+  link: string;
+}
+
 export interface ResumeType {
   profile: ProfileType;
   skills: string[];
   about: string[];
+  badges: BadgeType[];
   experience: ExperienceType[];
   projects: ProjectType[];
   education: EducationType[];
@@ -51,7 +59,7 @@ export interface ResumeType {
 const resume: ResumeType = {
   profile: {
     name: 'Jehiel Martinez',
-    label: 'Software Developer / Electrical Engineer',
+    label: 'Software, Cloud, Electrical Engineer',
     picture: './images/profile-picture.jpeg',
     location: 'San Pedro Sula, Honduras',
     email: 'jehielmartinez@gmail.com',
@@ -63,6 +71,18 @@ const resume: ResumeType = {
     linkedin: 'jehielmartinez',
     codepen: 'jehielmartinez'
   },
+  badges: [
+    {
+      name: 'AWS Solutions Architect Associate',
+      image: 'images/aws-saa.png',
+      link: 'https://www.credly.com/badges/63717dcd-89f7-46d8-9da7-9eab4fc9560b/public_url'
+    },
+    {
+      name: 'Github Actions',
+      image: 'images/github-actions.png',
+      link: 'https://www.credly.com/badges/56f277de-f997-40a4-a5ef-5f5346718ef9/public_url'
+    }
+  ],
   skills: [
     'Javascript',
     'Typescript',
@@ -94,6 +114,7 @@ const resume: ResumeType = {
       position: 'Engineering Manager',
       startDate: '1/11/2020',
       endDate: 'now',
+      duration: '4 years',
       activities: [
         'Main cloud engineer on the migration of antiquated AWS infrastructure for a large company to a modern, scalable solution utilizing AWS CDK for Infrastructure as Code',
         'Lead Engineer in creating a decentralized social media platform utilizing React Native and NestJS API, dockerized and deployed on Raspberry Pi SBCs and AWS EC2 servers. Responsibilities included leading and building the project, constructing the AWS infrastructure with AWS CDK, and implementing deployment automation for the entire platform using AWS services to deploy individual isolated servers on demand.',
@@ -107,6 +128,7 @@ const resume: ResumeType = {
       position: 'Software Engineer',
       startDate: '1/11/2019',
       endDate: '1/11/2020',
+      duration: '1 year',
       activities: [
         'Served as the Lead Engineer in developing an outdoor-social application utilizing React Native for frontend and ReactJS for the CMS, backed by AWS Amplify. Successfully published the application manually on both the App Store and Play Store.',
         'Lead Engineer in creating a local marketing application for OSU students using React Native, published on both the App Store and Play Store. Employed Fastlane and ReactJS for Backoffice management, with a backend comprising AWS Amplify services and AWS Lambda serverless functions.'
@@ -119,6 +141,7 @@ const resume: ResumeType = {
       position: 'Plant Operations Supervisor Engineer',
       startDate: '16/02/2016',
       endDate: '31/10/2019',
+      duration: '3 years 8 months',
       activities: [
         'Ensure the correct operation of all equipments on plant.',
         'Supervise and assign tasks to field technician operators daily.',
@@ -134,6 +157,7 @@ const resume: ResumeType = {
       position: 'Turbine Operation Engineer',
       startDate: '09/02/2016',
       endDate: '15/06/2016',
+      duration: '4 months',
       activities: [
         'Ensure the reliable operation of a 35MW steam turbine and generator unit.',
         'Attend and control emergencies like homeloads, blackouts, or operation failures.',
