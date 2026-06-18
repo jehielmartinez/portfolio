@@ -59,7 +59,7 @@ export interface ResumeType {
 const resume: ResumeType = {
   profile: {
     name: 'Jehiel Martinez',
-    label: 'Software, Cloud, Electrical Engineer',
+    label: 'Full-Stack & Cloud Engineer',
     picture: './images/profile-picture.jpeg',
     location: 'San Pedro Sula, Honduras',
     email: 'jehielmartinez@gmail.com',
@@ -101,10 +101,10 @@ const resume: ResumeType = {
     'ArgoCD',
   ],
   about: [
-    "As a software engineer, I specialize in **Cloud Engineering** and **DevOps**, focusing on scalable solutions that enhance operational efficiency. My expertise encompasses extensive work with **AWS** and **Azure**, where I have utilized tools like **AWS CDK** and **Pulumi** for Infrastructure as Code (IaC) to automate the provisioning and management of cloud resources.\n",
-    "My expertise also includes automating **CI/CD pipelines** for both **Android** and **iOS** applications ensuring efficient and hassle-free app store deployments\n",
-    "In addition to my cloud and DevOps experience, I have led the development of innovative applications using **React Native** and **ReactJS**. I also have a strong foundation in backend technologies, utilizing **NestJS**, **NodeJS**, **Docker**, and serverless architectures to deliver high-quality software solutions.\n",
-    "I am passionate about utilizing technology to solve complex problems and continuously strive to improve processes through automation and innovation."
+    "I'm a software engineer who builds across the full stack and the cloud — from **React** and **React Native** front ends to **NestJS** and **NodeJS** services, down to the infrastructure they run on. My focus is shipping scalable, well-architected solutions that hold up in production.\n",
+    "On the product side, I lead the development of mobile and web applications with **React Native** and **ReactJS**, backed by **NestJS**, **NodeJS**, **Docker**, and serverless architectures. I own features end to end — from API design to release on the **App Store** and **Play Store**.\n",
+    "On the cloud side, I specialize in **Cloud Engineering** and **DevOps** across **AWS** and **Azure**, using **AWS CDK** and **Pulumi** for Infrastructure as Code to automate provisioning and management. I also build **CI/CD pipelines** that make **Android** and **iOS** app store deployments fast and repeatable.\n",
+    "I'm driven by solving complex problems with technology, and I'm always looking for ways to improve processes through automation and thoughtful engineering."
   ],
   experience: [
     {
@@ -116,9 +116,9 @@ const resume: ResumeType = {
       endDate: 'now',
       duration: '4 years',
       activities: [
-        'Main cloud engineer on the migration of antiquated AWS infrastructure for a large company to a modern, scalable solution utilizing AWS CDK for Infrastructure as Code',
-        'Lead Engineer in creating a decentralized social media platform utilizing React Native and NestJS API, dockerized and deployed on Raspberry Pi SBCs and AWS EC2 servers. Responsibilities included leading and building the project, constructing the AWS infrastructure with AWS CDK, and implementing deployment automation for the entire platform using AWS services to deploy individual isolated servers on demand.',
-        'Deployed multiple environments for a .NET and Angular application on Azure services, utilizing Pulumi for Infrastructure as Code (IaC) to provision and configure cloud resources. I implemented continuous delivery (CD) pipelines using GitHub Actions, automating the build, test, and deployment workflows.'
+        'Led the migration of a large company\'s legacy AWS infrastructure to a modern, scalable architecture defined entirely as code with AWS CDK.',
+        'Architected and led a decentralized social media platform built with React Native and a NestJS API, dockerized and deployed across Raspberry Pi SBCs and AWS EC2. Owned the project end to end — defining the AWS infrastructure with AWS CDK and automating deployment to provision isolated, on-demand servers for each instance.',
+        'Provisioned and configured multiple environments for a .NET and Angular application on Azure using Pulumi for Infrastructure as Code, and built GitHub Actions pipelines to automate the build, test, and deployment workflow.'
       ]
     },
     {
@@ -130,8 +130,8 @@ const resume: ResumeType = {
       endDate: '1/11/2020',
       duration: '1 year',
       activities: [
-        'Served as the Lead Engineer in developing an outdoor-social application utilizing React Native for frontend and ReactJS for the CMS, backed by AWS Amplify. Successfully published the application manually on both the App Store and Play Store.',
-        'Lead Engineer in creating a local marketing application for OSU students using React Native, published on both the App Store and Play Store. Employed Fastlane and ReactJS for Backoffice management, with a backend comprising AWS Amplify services and AWS Lambda serverless functions.'
+        'Lead engineer on an outdoor-social application, building the mobile app in React Native and the CMS in ReactJS, backed by AWS Amplify. Published the app to both the App Store and Play Store.',
+        'Built a local marketing application for OSU students in React Native, shipped to the App Store and Play Store. Used Fastlane to automate releases and ReactJS for the back-office, with a backend of AWS Amplify services and AWS Lambda serverless functions.'
       ]
     },
     {
@@ -143,11 +143,11 @@ const resume: ResumeType = {
       endDate: '31/10/2019',
       duration: '3 years 8 months',
       activities: [
-        'Ensure the correct operation of all equipments on plant.',
-        'Supervise and assign tasks to field technician operators daily.',
-        'Plan and execute daily equipment field inspections.',
-        'Report and optimize production, consumption, and performance values.',
-        'Create the Operations Manual for every equipment in plant.'
+        'Ensured the reliable operation of all plant equipment.',
+        'Supervised a team of field technician operators, assigning and prioritizing their daily tasks.',
+        'Planned and carried out daily field inspections of plant equipment.',
+        'Tracked and optimized production, consumption, and performance metrics.',
+        'Authored the operations manual for every piece of equipment in the plant.'
       ]
     },
     {
@@ -159,9 +159,9 @@ const resume: ResumeType = {
       endDate: '15/06/2016',
       duration: '4 months',
       activities: [
-        'Ensure the reliable operation of a 35MW steam turbine and generator unit.',
-        'Attend and control emergencies like homeloads, blackouts, or operation failures.',
-        'Supervise the correct maintenance and operation of equipment during shutdowns.'
+        'Ensured the reliable operation of a 35MW steam turbine and generator unit.',
+        'Responded to and controlled emergencies such as house-load events, blackouts, and operational failures.',
+        'Supervised the maintenance and safe operation of equipment during scheduled shutdowns.'
       ]
     }
   ],
