@@ -139,7 +139,7 @@ const resume: ResumeType = {
       endDate: 'now',
       duration: '2 months',
       activities: [
-        'Founded and solely built Caleb, an AI coaching app for fathers — an Expo (React Native) iOS app backed by Supabase (Postgres, Auth, and Edge Functions), shipped bilingual in English and Spanish.',
+        'Founded and solely built Caleb, an AI-powered strength coaching app — an Expo (React Native) iOS app backed by Supabase (Postgres, Auth, and Edge Functions), shipped bilingual in English and Spanish.',
         'Designed and built the AI coaching engine on a multi-model LLM setup, routed per call type through Supabase Edge Functions, with streaming responses, tool use, and persistent per-user memory.',
         'Implemented subscription billing with RevenueCat (no-card trial and paywall at expiry), product analytics and error tracking with PostHog behind a provider-agnostic telemetry layer, and a row-level-security data model on Postgres.',
         'Built and deployed the marketing and waitlist landing site in Astro.'
@@ -167,8 +167,8 @@ const resume: ResumeType = {
       website: 'https://codexitos.com',
       position: 'Engineering Manager',
       startDate: '1/11/2020',
-      endDate: 'now',
-      duration: '4 years',
+      endDate: '30/06/2025',
+      duration: '4 years 8 months',
       activities: [
         'Led the migration of a large company\'s legacy AWS infrastructure to a modern, scalable architecture defined entirely as code with AWS CDK.',
         'Architected and led a decentralized social media platform built with React Native and a NestJS API, dockerized and deployed across Raspberry Pi SBCs and AWS EC2. Owned the project end to end — defining the AWS infrastructure with AWS CDK and automating deployment to provision isolated, on-demand servers for each instance.',
