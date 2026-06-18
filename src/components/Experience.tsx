@@ -15,7 +15,7 @@ export default function Experience({ experience = [] }: ExperienceProps): JSX.El
         </h2>
       </div>
       <div className='experience-card__slideshow'>
-        {experience.map((job, key) => (
+        {experience.filter((job) => !job.hidden).map((job, key) => (
           <article key={key} className='mycard experience-card__experience'>
             <header className='experience-card__experience--header'>
               {job.website ? (

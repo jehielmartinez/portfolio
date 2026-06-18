@@ -22,6 +22,7 @@ export interface ExperienceType {
   endDate: string;
   duration: string;
   activities: string[];
+  hidden?: boolean;
 }
 
 export interface ProjectType {
@@ -138,6 +139,7 @@ const resume: ResumeType = {
       startDate: '14/04/2026',
       endDate: 'now',
       duration: '2 months',
+      hidden: false,
       activities: [
         'Founded and solely built Caleb, an AI-powered strength coaching app — an Expo (React Native) iOS app backed by Supabase (Postgres, Auth, and Edge Functions), shipped bilingual in English and Spanish.',
         'Designed and built the AI coaching engine on a multi-model LLM setup, routed per call type through Supabase Edge Functions, with streaming responses, tool use, and persistent per-user memory.',
@@ -153,6 +155,7 @@ const resume: ResumeType = {
       startDate: '08/03/2025',
       endDate: 'now',
       duration: '1 year 3 months',
+      hidden: false,
       activities: [
         'Co-founded Frontyard and lead its engineering — a places and parks discovery app built with Expo (React Native) and Supabase, featuring maps, push notifications, and in-app subscriptions.',
         'Built CoCo, a multi-agent AI content pipeline in Python with LangChain and LangGraph that researches outdoor places and auto-generates structured location guides — orchestrating planner, researcher, verifier, organizer, and summarizer nodes with Tavily web search and automatic verification and retry logic.',
@@ -169,6 +172,7 @@ const resume: ResumeType = {
       startDate: '1/11/2020',
       endDate: '30/06/2025',
       duration: '4 years 8 months',
+      hidden: false,
       activities: [
         'Led the migration of a large company\'s legacy AWS infrastructure to a modern, scalable architecture defined entirely as code with AWS CDK.',
         'Architected and led a decentralized social media platform built with React Native and a NestJS API, dockerized and deployed across Raspberry Pi SBCs and AWS EC2. Owned the project end to end — defining the AWS infrastructure with AWS CDK and automating deployment to provision isolated, on-demand servers for each instance.',
@@ -183,6 +187,7 @@ const resume: ResumeType = {
       startDate: '1/11/2019',
       endDate: '1/11/2020',
       duration: '1 year',
+      hidden: false,
       activities: [
         'Lead engineer on an outdoor-social application, building the mobile app in React Native and the CMS in ReactJS, backed by AWS Amplify. Published the app to both the App Store and Play Store.',
         'Built a local marketing application for OSU students in React Native, shipped to the App Store and Play Store. Used Fastlane to automate releases and ReactJS for the back-office, with a backend of AWS Amplify services and AWS Lambda serverless functions.'
@@ -196,6 +201,7 @@ const resume: ResumeType = {
       startDate: '16/02/2016',
       endDate: '31/10/2019',
       duration: '3 years 8 months',
+      hidden: false,
       activities: [
         'Ensured the reliable operation of all plant equipment.',
         'Supervised a team of field technician operators, assigning and prioritizing their daily tasks.',
@@ -212,6 +218,7 @@ const resume: ResumeType = {
       startDate: '09/02/2016',
       endDate: '15/06/2016',
       duration: '4 months',
+      hidden: false,
       activities: [
         'Ensured the reliable operation of a 35MW steam turbine and generator unit.',
         'Responded to and controlled emergencies such as house-load events, blackouts, and operational failures.',
