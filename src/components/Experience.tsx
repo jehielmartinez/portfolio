@@ -18,7 +18,19 @@ export default function Experience({ experience = [] }: ExperienceProps): JSX.El
         {experience.map((job, key) => (
           <article key={key} className='mycard experience-card__experience'>
             <header className='experience-card__experience--header'>
-              <img alt='company logo' src={job.logo} />
+              {job.website ? (
+                <a
+                  className='experience-card__experience--logo'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  href={job.website}
+                  aria-label={`${job.company} website`}
+                >
+                  <img alt='company logo' src={job.logo} />
+                </a>
+              ) : (
+                <img alt='company logo' src={job.logo} />
+              )}
               <div>
                 <h5>{job.position}</h5>
                 <a rel='noopener noreferrer' target='_blank' href={job.website}>

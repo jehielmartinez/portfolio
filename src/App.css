@@ -214,6 +214,10 @@
   display: flex;
   align-items: center;
 }
+.experience-card__experience--logo{
+  display: flex;
+  cursor: pointer;
+}
 .experience-card__experience--header img{
   width: 100px;
   padding: 10px;
