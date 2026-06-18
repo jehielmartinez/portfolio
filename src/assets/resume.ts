@@ -84,21 +84,30 @@ const resume: ResumeType = {
     }
   ],
   skills: [
-    'Javascript',
-    'Typescript',
+    // Languages
+    'JavaScript',
+    'TypeScript',
+    // Frontend
     'React',
-    'NextJS',
+    'Next.js',
     'React Native',
-    'NodeJS',
+    // Backend
+    'Node.js',
     'NestJS',
-    'AWS Architect',
+    'Express',
+    'MongoDB',
+    // Cloud & DevOps
+    'AWS',
+    'AWS CDK',
+    'Serverless',
     'Azure',
-    'Docker',
-    'Github Actions',
     'Pulumi',
-    'Fastlane',
+    'Docker',
     'Kubernetes',
     'ArgoCD',
+    'CI/CD',
+    'GitHub Actions',
+    'Fastlane',
   ],
   about: [
     "I'm a software engineer who builds across the full stack and the cloud — from **React** and **React Native** front ends to **NestJS** and **NodeJS** services, down to the infrastructure they run on. My focus is shipping scalable, well-architected solutions that hold up in production.\n",
