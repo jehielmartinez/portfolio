@@ -127,6 +127,35 @@ const resume: ResumeType = {
   ],
   experience: [
     {
+      company: 'Caleb',
+      logo: './images/caleb.png',
+      website: 'https://calebfoundry.com',
+      position: 'Founder & Lead Engineer',
+      startDate: '14/04/2026',
+      endDate: 'now',
+      duration: '2 months',
+      activities: [
+        'Founded and solely built Caleb, an AI coaching app for fathers — an Expo (React Native) iOS app backed by Supabase (Postgres, Auth, and Edge Functions), shipped bilingual in English and Spanish.',
+        'Designed and built the AI coaching engine on a multi-model LLM setup, routed per call type through Supabase Edge Functions, with streaming responses, tool use, and persistent per-user memory.',
+        'Implemented subscription billing with RevenueCat (no-card trial and paywall at expiry), product analytics and error tracking with PostHog behind a provider-agnostic telemetry layer, and a row-level-security data model on Postgres.',
+        'Built and deployed the marketing and waitlist landing site in Astro.'
+      ]
+    },
+    {
+      company: 'Frontyard',
+      logo: './images/frontyard.png',
+      website: 'https://frontyardinc.com',
+      position: 'Co-Founder & Lead Engineer',
+      startDate: '08/03/2025',
+      endDate: 'now',
+      duration: '1 year 3 months',
+      activities: [
+        'Co-founded Frontyard and lead its engineering — a places and parks discovery app built with Expo (React Native) and Supabase, featuring maps, push notifications, and in-app subscriptions.',
+        'Built a content management system for the app\'s places data using Refine, React, and Supabase, giving non-technical editors a tool to manage content.',
+        'Built an interactive map plugin to display project locations on a Google Map.'
+      ]
+    },
+    {
       company: 'CODE Exitos',
       logo: './images/codexitos.png',
       website: 'https://codexitos.com',
