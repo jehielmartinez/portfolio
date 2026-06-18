@@ -139,7 +139,7 @@ const resume: ResumeType = {
       startDate: '14/04/2026',
       endDate: 'now',
       duration: '2 months',
-      hidden: false,
+      hidden: true,
       activities: [
         'Founded and solely built Caleb, an AI-powered strength coaching app — an Expo (React Native) iOS app backed by Supabase (Postgres, Auth, and Edge Functions), shipped bilingual in English and Spanish.',
         'Designed and built the AI coaching engine on a multi-model LLM setup, routed per call type through Supabase Edge Functions, with streaming responses, tool use, and persistent per-user memory.',
