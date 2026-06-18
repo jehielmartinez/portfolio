@@ -87,6 +87,7 @@ const resume: ResumeType = {
     // Languages
     'JavaScript',
     'TypeScript',
+    'Python',
     // Frontend
     'React',
     'Next.js',
@@ -103,6 +104,8 @@ const resume: ResumeType = {
     'OpenAI',
     'Gemini',
     'Claude',
+    'LangChain',
+    'LangGraph',
     // Cloud & DevOps
     'AWS',
     'AWS CDK',
@@ -152,6 +155,8 @@ const resume: ResumeType = {
       duration: '1 year 3 months',
       activities: [
         'Co-founded Frontyard and lead its engineering — a places and parks discovery app built with Expo (React Native) and Supabase, featuring maps, push notifications, and in-app subscriptions.',
+        'Built CoCo, a multi-agent AI content pipeline in Python with LangChain and LangGraph that researches outdoor places and auto-generates structured location guides — orchestrating planner, researcher, verifier, organizer, and summarizer nodes with Tavily web search and automatic verification and retry logic.',
+        'Generated OpenAI embeddings for the place catalog and persisted the structured results to Supabase, powering semantic, activity-based search across the app.',
         'Built a content management system for the app\'s places data using Refine, React, and Supabase, giving non-technical editors a tool to manage content.',
         'Built an interactive map plugin to display project locations on a Google Map.'
       ]
