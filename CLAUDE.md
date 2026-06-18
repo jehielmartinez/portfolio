@@ -9,6 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run lint` — run ESLint over the repo
 - `npm run preview` — serve the production build locally
 
+- `uv run scripts/generate_resume_pdf.py` — regenerate the downloadable PDF résumé (`src/assets/Jehiel_Martinez_Resume.pdf`, served by the Download button) from `src/assets/resume.ts`. Run it after editing résumé content so the PDF stays in sync. Skips experience entries flagged `hidden: true`.
+
 There is no test suite.
 
 ## Architecture
