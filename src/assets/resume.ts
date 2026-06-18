@@ -101,6 +101,7 @@ const resume: ResumeType = {
     'Express',
     'Supabase',
     'PostgreSQL',
+    'Sequelize',
     // AI
     'OpenAI',
     'Gemini',
@@ -145,6 +146,23 @@ const resume: ResumeType = {
         'Designed and built the AI coaching engine on a multi-model LLM setup, routed per call type through Supabase Edge Functions, with streaming responses, tool use, and persistent per-user memory.',
         'Implemented subscription billing with RevenueCat (no-card trial and paywall at expiry), product analytics and error tracking with PostHog behind a provider-agnostic telemetry layer, and a row-level-security data model on Postgres.',
         'Built and deployed the marketing and waitlist landing site in Astro.'
+      ]
+    },
+    {
+      company: 'Fortress Technology',
+      logo: './images/fortress.png',
+      website: 'https://www.fortresstech.io',
+      position: 'Senior Software Engineer',
+      startDate: '30/06/2025',
+      endDate: 'now',
+      duration: '1 year',
+      hidden: false,
+      activities: [
+        'Senior full-stack engineer on a property-management and affordable-housing compliance SaaS, delivering features end to end across a Node.js/Sequelize backend, a React frontend, a shared TypeScript component library, and standalone payments and messaging microservices on AWS.',
+        'Designed and built a centralized two-way SMS communication platform — a Messaging Hub with opt-in/opt-out preference management, conversation search and filtering, cursor-based pagination, real-time new-message indicators, and conversation-status sync across properties.',
+        'Implemented affordable-housing compliance workflows for HUD and Rural Development programs: move-in/move-out and recertification certifications, TTP and gross-rent calculations, NAUR status triggers, a form correction workflow, and government PDF templates (HUD-50059, RD 3560-7/3560-10, and state tax-credit forms).',
+        'Built duplicate prospect and lead management with a deduplication queue, row-level locking for concurrent merges, and account/profile merge resolution, and hardened accounting flows around ledgers, prorated transactions, and floor-plan conversions.',
+        'Improved reliability and performance — offloaded bulk people-load operations to SQS worker queues, optimized ledger loading, gated rollouts behind feature flags, and decoupled the payments service from rent-roll loading.'
       ]
     },
     {
