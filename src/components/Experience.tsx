@@ -36,8 +36,14 @@ export default function Experience({ experience = [] }: ExperienceProps): JSX.El
                 <a rel='noopener noreferrer' target='_blank' href={job.website}>
                   {job.company}
                 </a>
-                <p>
+                <p className='experience-card__experience--duration'>
                   {job.duration}
+                  {job.endDate === 'now' && (
+                    <span className='experience-card__experience--present'>
+                      <span className='experience-card__experience--present-dot' />
+                      Present
+                    </span>
+                  )}
                 </p>
               </div>
             </header>
