@@ -90,12 +90,18 @@ const resume: ResumeType = {
     // Frontend
     'React',
     'Next.js',
+    'Astro',
     'React Native',
+    'Expo',
     // Backend
     'Node.js',
     'NestJS',
     'Express',
-    'MongoDB',
+    'Supabase',
+    'PostgreSQL',
+    // AI
+    'Claude API',
+    'Vercel AI SDK',
     // Cloud & DevOps
     'AWS',
     'AWS CDK',
@@ -108,10 +114,14 @@ const resume: ResumeType = {
     'CI/CD',
     'GitHub Actions',
     'Fastlane',
+    // Product
+    'RevenueCat',
+    'PostHog',
   ],
   about: [
-    "I'm a software engineer who builds across the full stack and the cloud — from **React** and **React Native** front ends to **NestJS** and **NodeJS** services, down to the infrastructure they run on. My focus is shipping scalable, well-architected solutions that hold up in production.\n",
-    "On the product side, I lead the development of mobile and web applications with **React Native** and **ReactJS**, backed by **NestJS**, **NodeJS**, **Docker**, and serverless architectures. I own features end to end — from API design to release on the **App Store** and **Play Store**.\n",
+    "I'm a software engineer who builds across the full stack and the cloud — from **React** and **React Native** front ends to **NestJS** and **NodeJS** services, down to the infrastructure they run on, and increasingly building **AI-powered products** on top of it. I care about shipping scalable, well-architected solutions that hold up in production.\n",
+    "Lately, much of my work is **AI application development** — shipping production LLM features with the **Anthropic Claude API** and the **Vercel AI SDK**: streaming responses, tool use, and persistent memory, served through **Supabase** Edge Functions over a **PostgreSQL** backend with authentication and row-level security.\n",
+    "On the product side, I lead the development of mobile and web applications with **React Native** (**Expo**) and **ReactJS**, backed by **NestJS**, **NodeJS**, **Docker**, and serverless architectures. I own features end to end — from API design to release on the **App Store** and **Play Store**.\n",
     "On the cloud side, I specialize in **Cloud Engineering** and **DevOps** across **AWS** and **Azure**, using **AWS CDK** and **Pulumi** for Infrastructure as Code to automate provisioning and management. I also build **CI/CD pipelines** that make **Android** and **iOS** app store deployments fast and repeatable.\n",
     "I'm driven by solving complex problems with technology, and I'm always looking for ways to improve processes through automation and thoughtful engineering."
   ],
