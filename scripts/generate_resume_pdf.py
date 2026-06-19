@@ -293,9 +293,12 @@ def contact_line(profile: dict, styles) -> Paragraph:
 
 
 def experience_block(job: dict, styles, content_width: float) -> list:
+    company = su.escape(job["company"])
+    if job.get("website"):
+        company = f'<a href="{job["website"]}">{company}</a>'
     left = Paragraph(
         f'{su.escape(job["position"])}<br/>'
-        f'<font color="#3C3388"><i>{su.escape(job["company"])}</i></font>',
+        f'<font color="#3C3388"><i>{company}</i></font>',
         styles["role"],
     )
     date_range = f'{fmt_date(job["startDate"])} – {fmt_date(job["endDate"])}'
@@ -378,8 +381,13 @@ def build_pdf(data: dict, skill_groups, styles) -> None:
     badges = data.get("badges", [])
     if badges:
         story += section_header("Certifications", styles)
-        names = " · ".join(su.escape(b["name"]) for b in badges)
-        story.append(Paragraph(names, styles["edu"]))
+        parts = []
+        for b in badges:
+            name = su.escape(b["name"])
+            if b.get("link"):
+                name = f'<a href="{b["link"]}"><font color="#2A4B8D">{name}</font></a>'
+            parts.append(name)
+        story.append(Paragraph(" &nbsp;·&nbsp; ".join(parts), styles["edu"]))
 
     # ---- Education (formal degree only) ----
     degrees = [e for e in data.get("education", [])
@@ -392,7 +400,10 @@ def build_pdf(data: dict, skill_groups, styles) -> None:
                 m = re.search(r"(\d{4})", e["endDate"])
                 if m:
                     yr = m.group(1)
-            line = f'<b>{su.escape(e["degree"])}</b> — {su.escape(e["institution"])}'
+            institution = su.escape(e["institution"])
+            if e.get("website"):
+                institution = f'<a href="{e["website"]}">{institution}</a>'
+            line = f'<b>{su.escape(e["degree"])}</b> — {institution}'
             if yr:
                 line += f' <font color="#777777">({yr})</font>'
             story.append(Paragraph(line, styles["edu"]))
