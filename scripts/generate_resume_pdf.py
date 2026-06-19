@@ -204,8 +204,8 @@ def build_styles() -> dict[str, ParagraphStyle]:
         leading=14, textColor=MUTED, alignment=TA_LEFT, spaceAfter=4,
     )
     s["contact"] = ParagraphStyle(
-        "contact", parent=base, fontName="Helvetica", fontSize=8.7,
-        leading=12, textColor=INK, alignment=TA_LEFT,
+        "contact", parent=base, fontName="Helvetica", fontSize=9,
+        leading=13.5, textColor=INK, alignment=TA_LEFT,
     )
     s["section"] = ParagraphStyle(
         "section", parent=base, fontName="Helvetica-Bold", fontSize=10.5,
@@ -258,26 +258,38 @@ def section_header(title: str, styles) -> list:
 
 
 def contact_line(profile: dict, styles) -> Paragraph:
-    def link(url: str, label: str) -> str:
-        return f'<a href="{url}"><font color="#2A4B8D">{su.escape(label)}</font></a>'
+    """Two grouped lines: identity/contact, then social profiles.
 
-    bits = []
+    Keeping the long profile URLs on their own line avoids reportlab breaking a
+    handle mid-word when everything is crammed onto a single overflowing row.
+    """
+    def link(url: str, label: str) -> str:
+        safe = su.escape(label).replace(" ", "&nbsp;")
+        return f'<a href="{url}"><font color="#2A4B8D">{safe}</font></a>'
+
+    line1 = []
     if profile.get("location"):
-        bits.append(su.escape(profile["location"]).replace(" ", "&nbsp;"))
+        line1.append(su.escape(profile["location"]).replace(" ", "&nbsp;"))
     if profile.get("email"):
-        bits.append(link("mailto:" + profile["email"], profile["email"]))
+        line1.append(link("mailto:" + profile["email"], profile["email"]))
     if profile.get("website"):
         web = profile["website"]
         disp = re.sub(r"^https?://(www\.)?", "", web).rstrip("/")
-        bits.append(link(web, disp))
+        line1.append(link(web, disp))
+
+    line2 = []
     if profile.get("github"):
         u = profile["github"]
-        bits.append(link(f"https://github.com/{u}", f"github.com/{u}"))
+        line2.append(link(f"https://github.com/{u}", f"github.com/{u}"))
     if profile.get("linkedin"):
         u = profile["linkedin"]
-        bits.append(link(f"https://linkedin.com/in/{u}", f"linkedin.com/in/{u}"))
-    sep = '<font color="#999999">&nbsp;&nbsp;|&nbsp;&nbsp;</font>'
-    return Paragraph(sep.join(bits), styles["contact"])
+        line2.append(link(f"https://linkedin.com/in/{u}", f"linkedin.com/in/{u}"))
+
+    sep = '<font color="#9A9A9A">&nbsp;&nbsp;·&nbsp;&nbsp;</font>'
+    html = sep.join(line1)
+    if line2:
+        html += "<br/>" + sep.join(line2)
+    return Paragraph(html, styles["contact"])
 
 
 def experience_block(job: dict, styles, content_width: float) -> list:
@@ -332,10 +344,11 @@ def build_pdf(data: dict, skill_groups, styles) -> None:
     story.append(Paragraph(su.escape(profile["name"]), styles["name"]))
     if profile.get("label"):
         story.append(Paragraph(su.escape(profile["label"]), styles["title"]))
+    story.append(Spacer(1, 3))
     story.append(contact_line(profile, styles))
-    story.append(Spacer(1, 2))
+    story.append(Spacer(1, 4))
     story.append(HRFlowable(width="100%", thickness=1.1, color=ACCENT,
-                            spaceBefore=4, spaceAfter=2))
+                            spaceBefore=0, spaceAfter=2))
 
     # ---- Summary ----
     if data.get("about"):
