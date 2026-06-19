@@ -79,7 +79,7 @@ const resume: ResumeType = {
       link: 'https://www.credly.com/badges/63717dcd-89f7-46d8-9da7-9eab4fc9560b/public_url'
     },
     {
-      name: 'Github Actions',
+      name: 'GitHub Actions',
       image: 'images/github-actions.png',
       link: 'https://www.credly.com/badges/56f277de-f997-40a4-a5ef-5f5346718ef9/public_url'
     }
