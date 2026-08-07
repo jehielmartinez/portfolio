@@ -136,16 +136,16 @@ const resume: ResumeType = {
       company: 'Caleb',
       logo: './images/caleb.png',
       website: 'https://calebfoundry.com',
-      position: 'Founder & Lead Engineer',
+      position: 'Founder',
       startDate: '14/04/2026',
       endDate: 'now',
-      duration: '2 months',
-      hidden: true,
+      duration: '4 months',
+      hidden: false,
       activities: [
         'Founded and solely built Caleb, an AI-powered strength coaching app — an Expo (React Native) iOS app backed by Supabase (Postgres, Auth, and Edge Functions), shipped bilingual in English and Spanish.',
         'Designed and built the AI coaching engine on a multi-model LLM setup, routed per call type through Supabase Edge Functions, with streaming responses, tool use, and persistent per-user memory.',
         'Implemented subscription billing with RevenueCat (no-card trial and paywall at expiry), product analytics and error tracking with PostHog behind a provider-agnostic telemetry layer, and a row-level-security data model on Postgres.',
-        'Built and deployed the marketing and waitlist landing site in Astro.'
+        'Built and deployed the marketing and landing site in Astro.'
       ]
     },
     {
