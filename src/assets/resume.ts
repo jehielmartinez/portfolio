@@ -6,11 +6,14 @@ export interface ProfileType {
   email: string;
   phone: string;
   website: string;
-  twitter: string;
   github: string;
   dev: string;
   linkedin: string;
-  codepen: string;
+}
+
+export interface SkillGroupType {
+  name: string;
+  items: string[];
 }
 
 export interface ExperienceType {
@@ -18,24 +21,27 @@ export interface ExperienceType {
   logo: string;
   website: string;
   position: string;
+  /** D/M/YYYY */
   startDate: string;
+  /** D/M/YYYY or 'now' */
   endDate: string;
-  duration: string;
   activities: string[];
+  /** Founder ventures are listed separately from employment. */
+  venture?: boolean;
   hidden?: boolean;
 }
 
 export interface ProjectType {
   name: string;
-  image: string;
+  year: string;
   description: string;
   link: string;
+  tags: string[];
 }
 
 export interface EducationType {
   institution: string;
   degree: string;
-  logo: string;
   startDate: string;
   endDate: string;
   website: string;
@@ -49,8 +55,11 @@ export interface BadgeType {
 
 export interface ResumeType {
   profile: ProfileType;
-  skills: string[];
+  /** Short third-person-free summary for the PDF header. */
+  summary: string;
+  /** Longer first-person narrative for the website. Markdown allowed. */
   about: string[];
+  skills: SkillGroupType[];
   badges: BadgeType[];
   experience: ExperienceType[];
   projects: ProjectType[];
@@ -60,18 +69,31 @@ export interface ResumeType {
 const resume: ResumeType = {
   profile: {
     name: 'Jehiel Martinez',
-    label: 'Full-Stack & Cloud Engineer',
+    label: 'Senior Full-Stack Engineer · Mobile, Cloud & AI',
     picture: './images/profile-picture.jpeg',
-    location: 'San Pedro Sula, Honduras',
+    location: 'San Pedro Sula, Honduras · Remote, CST (UTC-6)',
     email: 'jehielmartinez@gmail.com',
     phone: '',
     website: 'https://www.jehielmartinez.com',
-    twitter: 'jehielhn',
     github: 'jehielmartinez',
     dev: 'jehielmartinez',
-    linkedin: 'jehielmartinez',
-    codepen: 'jehielmartinez'
+    linkedin: 'jehielmartinez'
   },
+  summary:
+    'Senior full-stack engineer with 7 years shipping web, mobile, and cloud products, and 10 years of engineering overall. Founder of two App Store products built on React Native, Supabase, and multi-model LLM pipelines. I own features from API design and infrastructure as code (AWS CDK, Pulumi) through App Store and Play Store release, and I build docs-first: written specs, decision records, and CI gates. Bilingual English/Spanish.',
+  about: [
+    "I'm a senior full-stack engineer who ships products end to end: **React** and **React Native** clients, **Node.js** and **NestJS** services, the **AWS** infrastructure they run on, and increasingly the **LLM features** on top. I've founded two products that are live on the App Store and Play Store, and I care about software that holds up in production.\n",
+    "Lately most of my work is **AI application development**: production LLM features across **Anthropic Claude**, **OpenAI**, and **Google Gemini**, with streaming, tool use, per-user memory, and per-call-type model routing, served through **Supabase** Edge Functions over **PostgreSQL** with row-level security.\n",
+    "On the platform side I specialize in **Cloud Engineering** and **DevOps** on **AWS** and **Azure**, defining infrastructure as code with **AWS CDK** and **Pulumi**, and building **CI/CD** pipelines that make iOS and Android releases boring. I build docs-first, with written specs, architecture decision records, and CI gates, so humans and coding agents work from the same record.\n"
+  ],
+  skills: [
+    { name: 'Languages', items: ['TypeScript', 'JavaScript', 'Python', 'SQL'] },
+    { name: 'Frontend & Mobile', items: ['React', 'React Native', 'Expo', 'Next.js', 'Astro'] },
+    { name: 'Backend', items: ['Node.js', 'NestJS', 'Express', 'PostgreSQL', 'Supabase', 'Sequelize'] },
+    { name: 'AI', items: ['Anthropic Claude', 'OpenAI', 'Google Gemini', 'LangChain', 'LangGraph', 'Embeddings & semantic search'] },
+    { name: 'Cloud & DevOps', items: ['AWS', 'AWS CDK', 'Azure', 'Pulumi', 'Serverless', 'Docker', 'Kubernetes', 'ArgoCD', 'GitHub Actions', 'EAS', 'Fastlane'] },
+    { name: 'Quality & Product', items: ['Jest', 'Deno test', 'PostHog', 'RevenueCat', 'OneSignal'] }
+  ],
   badges: [
     {
       name: 'AWS Solutions Architect Associate',
@@ -84,70 +106,7 @@ const resume: ResumeType = {
       link: 'https://www.credly.com/badges/56f277de-f997-40a4-a5ef-5f5346718ef9/public_url'
     }
   ],
-  skills: [
-    // Languages
-    'JavaScript',
-    'TypeScript',
-    'Python',
-    // Frontend
-    'React',
-    'Next.js',
-    'Astro',
-    'React Native',
-    'Expo',
-    // Backend
-    'Node.js',
-    'NestJS',
-    'Express',
-    'Supabase',
-    'PostgreSQL',
-    'Sequelize',
-    // AI
-    'OpenAI',
-    'Gemini',
-    'Claude',
-    'LangChain',
-    'LangGraph',
-    // Cloud & DevOps
-    'AWS',
-    'AWS CDK',
-    'Serverless',
-    'Azure',
-    'Pulumi',
-    'Docker',
-    'Kubernetes',
-    'ArgoCD',
-    'CI/CD',
-    'GitHub Actions',
-    'Fastlane',
-    // Product
-    'RevenueCat',
-    'PostHog',
-  ],
-  about: [
-    "I'm a software engineer who builds across the full stack and the cloud — from **React** and **React Native** front ends to **NestJS** and **NodeJS** services, down to the infrastructure they run on, and increasingly building **AI-powered products** on top of it. I care about shipping scalable, well-architected solutions that hold up in production.\n",
-    "Lately, much of my work is **AI application development** — shipping production LLM features across **OpenAI**, **Google Gemini**, and **Anthropic Claude**: streaming responses, tool use, and persistent memory, served through **Supabase** Edge Functions over a **PostgreSQL** backend with authentication and row-level security.\n",
-    "On the product side, I lead the development of mobile and web applications with **React Native** (**Expo**) and **ReactJS**, backed by **NestJS**, **NodeJS**, **Docker**, and serverless architectures. I own features end to end — from API design to release on the **App Store** and **Play Store**.\n",
-    "On the cloud side, I specialize in **Cloud Engineering** and **DevOps** across **AWS** and **Azure**, using **AWS CDK** and **Pulumi** for Infrastructure as Code to automate provisioning and management. I also build **CI/CD pipelines** that make **Android** and **iOS** app store deployments fast and repeatable.\n",
-    "I'm driven by solving complex problems with technology, and I'm always looking for ways to improve processes through automation and thoughtful engineering."
-  ],
   experience: [
-    {
-      company: 'Caleb',
-      logo: './images/caleb.png',
-      website: 'https://calebfoundry.com',
-      position: 'Founder',
-      startDate: '14/04/2026',
-      endDate: 'now',
-      duration: '4 months',
-      hidden: false,
-      activities: [
-        'Founded and solely built Caleb, an AI-powered strength coaching app — an Expo (React Native) iOS app backed by Supabase (Postgres, Auth, and Edge Functions), shipped bilingual in English and Spanish.',
-        'Designed and built the AI coaching engine on a multi-model LLM setup, routed per call type through Supabase Edge Functions, with streaming responses, tool use, and persistent per-user memory.',
-        'Implemented subscription billing with RevenueCat (no-card trial and paywall at expiry), product analytics and error tracking with PostHog behind a provider-agnostic telemetry layer, and a row-level-security data model on Postgres.',
-        'Built and deployed the marketing and landing site in Astro.'
-      ]
-    },
     {
       company: 'Fortress Technology',
       logo: './images/fortress.png',
@@ -155,13 +114,26 @@ const resume: ResumeType = {
       position: 'Senior Software Engineer',
       startDate: '30/06/2025',
       endDate: 'now',
-      duration: '1 year',
-      hidden: false,
       activities: [
-        'Senior full-stack engineer on a property-management and affordable-housing compliance SaaS, delivering features end to end across a Node.js/Sequelize backend, a React frontend, a shared TypeScript component library, and standalone payments and messaging microservices on AWS.',
-        'Designed and built a centralized two-way SMS communication platform — a Messaging Hub with opt-in/opt-out preference management, conversation search and filtering, cursor-based pagination, real-time new-message indicators, and conversation-status sync across properties.',
-        'Built duplicate prospect and lead management with a deduplication queue, row-level locking for concurrent merges, and account/profile merge resolution, and hardened accounting flows around ledgers, prorated transactions, and floor-plan conversions.',
-        'Improved reliability and performance — offloaded bulk people-load operations to SQS worker queues, optimized ledger loading, gated rollouts behind feature flags, and decoupled the payments service from rent-roll loading.'
+        'Designed and shipped a centralized two-way SMS Messaging Hub for a property-management and affordable-housing compliance SaaS: opt-in/opt-out preference management, cursor-paginated conversation search, real-time new-message indicators, and conversation-status sync across properties.',
+        'Built duplicate prospect and lead management with a deduplication queue, row-level locking for concurrent merges, and account/profile merge resolution; hardened accounting flows around ledgers, prorated transactions, and floor-plan conversions.',
+        'Improved reliability and performance by offloading bulk people-load operations to SQS worker queues, optimizing ledger loading, decoupling the payments service from rent-roll loading, and gating rollouts behind feature flags.',
+        'Work end to end across a Node.js/Sequelize backend, a React frontend, a shared TypeScript component library, and standalone payments and messaging microservices on AWS.'
+      ]
+    },
+    {
+      company: 'Caleb',
+      logo: './images/caleb.png',
+      website: 'https://calebfoundry.com',
+      position: 'Founder & Sole Engineer',
+      venture: true,
+      startDate: '14/04/2026',
+      endDate: 'now',
+      activities: [
+        'Designed, built, and shipped solo an AI strength-coaching app, live on the App Store and Play Store: an Expo (React Native) client, bilingual English/Spanish, on a Supabase backend of Postgres, Auth, and 15 Edge Functions with row-level security.',
+        'Built the coaching engine on per-call-type model routing across Anthropic Claude and Google Gemini, with streaming responses, tool use, persistent per-user memory, and a one-line model rollback.',
+        'Built the release pipeline: tagged deploys, over-the-air JS updates with EAS Update, one-click rollback of Edge Functions and OTA bundles, and CI gates that version and budget-check every prompt.',
+        'Ran the product side: RevenueCat billing with a no-card trial and paywall at expiry, PostHog analytics and error tracking behind a provider-agnostic telemetry layer, push notifications via OneSignal with Supabase Cron owning the logic, and an Astro marketing site.'
       ]
     },
     {
@@ -169,16 +141,14 @@ const resume: ResumeType = {
       logo: './images/frontyard.png',
       website: 'https://frontyardinc.com',
       position: 'Co-Founder & Lead Engineer',
+      venture: true,
       startDate: '08/03/2025',
       endDate: 'now',
-      duration: '1 year 3 months',
-      hidden: false,
       activities: [
-        'Co-founded Frontyard and lead its engineering — a places and parks discovery app built with Expo (React Native) and Supabase, featuring maps, push notifications, and in-app subscriptions.',
-        'Built CoCo, a multi-agent AI content pipeline in Python with LangChain and LangGraph that researches outdoor places and auto-generates structured location guides — orchestrating planner, researcher, verifier, organizer, and summarizer nodes with Tavily web search and automatic verification and retry logic.',
-        'Generated OpenAI embeddings for the place catalog and persisted the structured results to Supabase, powering semantic, activity-based search across the app.',
-        'Built a content management system for the app\'s places data using Refine, React, and Supabase, giving non-technical editors a tool to manage content.',
-        'Built an interactive map plugin to display project locations on a Google Map.'
+        'Co-founded Frontyard and lead its engineering: a places and parks discovery app built with Expo (React Native) and Supabase, released on the App Store and Play Store, with maps, push notifications, and in-app subscriptions.',
+        'Built CoCo, a multi-agent AI content pipeline in Python with LangChain and LangGraph that researches outdoor places and generates structured location guides, orchestrating planner, researcher, verifier, organizer, and summarizer nodes with Tavily web search and automatic verification and retry.',
+        'Generated OpenAI embeddings for the place catalog and persisted them to Supabase, powering semantic, activity-based search across the app.',
+        'Built the content management system for places data with Refine, React, and Supabase, so non-technical editors can manage content, and a WordPress plugin for Austin Parks Foundation that maps park projects with CSV import for staff.'
       ]
     },
     {
@@ -188,12 +158,10 @@ const resume: ResumeType = {
       position: 'Engineering Manager',
       startDate: '1/11/2020',
       endDate: '30/06/2025',
-      duration: '4 years 8 months',
-      hidden: false,
       activities: [
-        'Led the migration of a large company\'s legacy AWS infrastructure to a modern, scalable architecture defined entirely as code with AWS CDK.',
-        'Architected and led a decentralized social media platform built with React Native and a NestJS API, dockerized and deployed across Raspberry Pi SBCs and AWS EC2. Owned the project end to end — defining the AWS infrastructure with AWS CDK and automating deployment to provision isolated, on-demand servers for each instance.',
-        'Provisioned and configured multiple environments for a .NET and Angular application on Azure using Pulumi for Infrastructure as Code, and built GitHub Actions pipelines to automate the build, test, and deployment workflow.'
+        'Led the migration of a large client\'s legacy AWS infrastructure to a modern, scalable architecture defined entirely as code with AWS CDK.',
+        'Architected and led a decentralized social media platform built with React Native and a NestJS API, dockerized and deployed across Raspberry Pi SBCs and AWS EC2; owned it end to end, defining the infrastructure with AWS CDK and automating provisioning of isolated, on-demand servers per instance.',
+        'Provisioned and configured multiple environments for a .NET and Angular application on Azure with Pulumi, and built GitHub Actions pipelines to automate build, test, and deployment.'
       ]
     },
     {
@@ -203,11 +171,9 @@ const resume: ResumeType = {
       position: 'Software Engineer',
       startDate: '1/11/2019',
       endDate: '1/11/2020',
-      duration: '1 year',
-      hidden: false,
       activities: [
-        'Lead engineer on an outdoor-social application, building the mobile app in React Native and the CMS in ReactJS, backed by AWS Amplify. Published the app to both the App Store and Play Store.',
-        'Built a local marketing application for OSU students in React Native, shipped to the App Store and Play Store. Used Fastlane to automate releases and ReactJS for the back-office, with a backend of AWS Amplify services and AWS Lambda serverless functions.'
+        'Lead engineer on an outdoor-social application: built the mobile app in React Native and the CMS in React, backed by AWS Amplify, and published it to the App Store and Play Store.',
+        'Built a local marketing app for OSU students in React Native, shipped to both stores, with Fastlane-automated releases, a React back-office, and a backend of AWS Amplify services and Lambda functions.'
       ]
     },
     {
@@ -215,114 +181,45 @@ const resume: ResumeType = {
       logo: './images/beco.png',
       website: 'https://beco.hn',
       position: 'Plant Operations Supervisor Engineer',
-      startDate: '16/02/2016',
-      endDate: '31/10/2019',
-      duration: '3 years 8 months',
-      hidden: false,
-      activities: [
-        'Ensured the reliable operation of all plant equipment.',
-        'Supervised a team of field technician operators, assigning and prioritizing their daily tasks.',
-        'Planned and carried out daily field inspections of plant equipment.',
-        'Tracked and optimized production, consumption, and performance metrics.',
-        'Authored the operations manual for every piece of equipment in the plant.'
-      ]
-    },
-    {
-      company: 'Bijao Electric Company S.A.',
-      logo: './images/beco.png',
-      website: 'https://beco.hn',
-      position: 'Turbine Operation Engineer',
       startDate: '09/02/2016',
-      endDate: '15/06/2016',
-      duration: '4 months',
-      hidden: false,
+      endDate: '31/10/2019',
       activities: [
-        'Ensured the reliable operation of a 35MW steam turbine and generator unit.',
-        'Responded to and controlled emergencies such as house-load events, blackouts, and operational failures.',
-        'Supervised the maintenance and safe operation of equipment during scheduled shutdowns.'
+        'Supervised a team of field technician operators at a thermal power plant, assigning and prioritizing daily work and owning the reliable operation of all plant equipment; promoted from Turbine Operation Engineer on a 35 MW steam turbine unit.',
+        'Tracked and optimized production, consumption, and performance metrics, and authored the operations manual for every piece of equipment in the plant.',
+        'Responded to and controlled emergencies such as house-load events and blackouts, and supervised safe operation during scheduled shutdowns.'
       ]
     }
   ],
   projects: [
     {
-      name: 'Oversight',
-      image: 'oversight.jpg',
-      description: 'Oversight is a platform created to ease the administration of residential areas in Honduras thru a mobile-based app. I developed the app in React Native, Nodejs, Express, and MongoDB. The web app was developed using ReactJS.',
-      link: 'https://www.oversight.hn'
+      name: 'Daily Ledger',
+      year: '2026',
+      description: 'Unattended daily newspaper pipeline in TypeScript: a dozen source adapters, each with a declared failure mode, one LLM editorial pass, and every figure rendered verbatim from its source, typeset with Typst and published as a dated GitHub release. Designed so a printed number can only be wrong if its source was.',
+      link: 'https://github.com/jehielmartinez/daily-ledger',
+      tags: ['TypeScript', 'Claude API', 'Typst', 'GitHub Actions']
     },
     {
-      name: 'Cryptos',
-      image: 'cryptos.png',
-      description: 'Quick check price of your favorite Cryptocurrency! React app exploring Styled Components and Hooks',
-      link: 'http://jehielmartinez.github.io/cryptos'
+      name: 'Alabanza',
+      year: '2026',
+      description: 'Battery-powered Raspberry Pi hymn-player appliance for churches: Python app with an OLED interface, keypad and encoder controls, Bluetooth and HDMI audio, a custom KiCad control PCB, and a hardware-independent test suite of about 350 tests.',
+      link: 'https://github.com/jehielmartinez/alabanza',
+      tags: ['Python', 'Raspberry Pi', 'KiCad', 'Embedded']
     },
     {
-      name: 'Stock Control App',
-      image: 'stock-control.jpg',
-      description: 'Stock Control is a web-based application to control the tool loans and material existence in the operations department local hardware store at Bijao Electric Company S.A. Created with ReactJS, MongoDB, Nodejs, Express, Bootstrap.',
-      link: ''
-    },
-    {
-      name: 'RTracker App',
-      image: 'r-tracker.jpg',
-      description: 'The R-Tracker stands for Responsibilities Tracker, a simple personal tool to remember and keep track of all the pending bills every fifteen days. Created with React Native, Nodejs, Express, MongoDB.',
-      link: ''
-    },
-    {
-      name: 'Playground App',
-      image: 'playground.jpg',
-      description: 'Playground was a start-up project to create a platform for the reservation, rent, and administration of mini soccer playing fields in Honduras. Created with Ionic4 and Firebase as backend. Web app developed in AngularJS',
-      link: ''
+      name: 'claude-kit',
+      year: '2026',
+      description: 'Claude Code plugin that standardizes a worktree-per-issue development loop across repositories: shared conventions, a ticket-to-PR skill, a docs audit skill, and a multi-agent workflow that builds every sub-issue of a spec in dependency order.',
+      link: 'https://github.com/jehielmartinez/claude-kit',
+      tags: ['Agentic workflows', 'Developer tooling']
     }
   ],
   education: [
     {
-      institution: 'UNAH-VS',
-      degree: 'Industrial Electrical Engineer',
-      logo: 'https://i.pinimg.com/originals/d4/15/32/d415326370a671a45006fa4efe0bbac7.png',
+      institution: 'Universidad Nacional Autónoma de Honduras (UNAH-VS)',
+      degree: 'B.Sc. Industrial Electrical Engineering',
       startDate: '1/02/2010',
       endDate: '6/12/2016',
       website: 'https://vallesula.unah.edu.hn'
-    },
-    {
-      institution: 'Platzi',
-      degree: 'ReactJS',
-      logo: 'https://static.platzi.com/media/avatars/Platzi-f730e65b-e92b-44d3-81c0-5c59c4dc4658.png',
-      startDate: '01/10/2019',
-      endDate: '07/10/2019',
-      website: 'https://platzi.com/@jehielmartinez/curso/1651-react-ejs/diploma/detalle/'
-    },
-    {
-      institution: 'Udemy',
-      degree: 'Nodejs Developer',
-      logo: 'https://cdn.freebiesupply.com/logos/large/2x/udemy-1-logo-png-transparent.png',
-      startDate: '27/05/2019',
-      endDate: '25/08/2019',
-      website: 'https://www.udemy.com/certificate/UC-06GTFNFL/'
-    },
-    {
-      institution: 'FreeCodeCamp',
-      degree: 'Responsive Web Design',
-      logo: 'https://s3.amazonaws.com/freecodecamp/curriculum-diagram-full.jpg',
-      startDate: '01/09/2019',
-      endDate: '29/09/2019',
-      website: 'https://www.freecodecamp.org/certification/jehielmartinez/responsive-web-design'
-    },
-    {
-      institution: 'Platzi',
-      degree: 'Angular 4',
-      logo: 'https://static.platzi.com/media/avatars/Platzi-f730e65b-e92b-44d3-81c0-5c59c4dc4658.png',
-      startDate: '10/04/2018',
-      endDate: '12/05/2018',
-      website: 'https://platzi.com/@jehielmartinez/curso/1153-angular-4/diploma/detalle/'
-    },
-    {
-      institution: 'Platzi',
-      degree: 'Frontend Developer',
-      logo: 'https://static.platzi.com/media/avatars/Platzi-f730e65b-e92b-44d3-81c0-5c59c4dc4658.png',
-      startDate: '01/09/2019',
-      endDate: '26/09/2019',
-      website: 'https://platzi.com/@jehielmartinez/curso/1640-frontend-developer/diploma/detalle/'
     }
   ]
 };

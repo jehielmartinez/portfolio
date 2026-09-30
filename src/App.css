@@ -24,16 +24,6 @@
   .career_section{
       flex: 1;
   }
-  .project-modal__content{
-      flex-direction: column;
-      width: 90vw;
-  }
-  .project-modal__content--description{
-      margin-top: 10px;
-  }
-  .education-card__slideshow{
-      flex-direction: column;
-  }
 }
 .mycard {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -117,10 +107,25 @@
 }
 
 /* SKILLS CARD */
+.skills-card__groups{
+  padding: 10px 20px 14px;
+}
+.skills-card__group--name{
+  margin: 10px 0 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #555;
+}
 .skills-card__skills{
-  padding: 20px;
   display: flex;
   flex-wrap: wrap;
+}
+.skills-card .skills-card__skills{
+  padding: 0;
+}
+.badges-card .skills-card__skills{
+  padding: 20px;
 }
 .skills-card__skills--element{
   border: 1px solid grey;
@@ -165,40 +170,72 @@
 }
 
 /* PROJECTS-CARD */
-.projects-card__slideshow{
+.projects-card__list{
   padding: 20px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 16px;
 }
 .projects-card__project{
-  width: 300px;
+  border-left: 3px solid #003d5b;
+  padding: 4px 0 4px 16px;
+}
+.projects-card__project--header{
   display: flex;
-  flex-direction: column;
+  align-items: baseline;
   justify-content: space-between;
-  cursor: pointer;
-  transition: all 400ms;
-}
-.projects-card__project:hover{
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
-}
-.projects-card__project img{
-  width: 100%;
+  gap: 12px;
 }
 .projects-card__project h3{
-  font-size: 18px;
-  background-color: #F7F7F7;
-  height: 40px;
+  font-size: 17px;
   margin: 0;
-  text-align: center;
-  padding-top: 10px;
 }
-
-.education-card__slideshow{
-  margin: 20px;
+.projects-card__project h3 a{
+  color: #003d5b;
+  text-decoration: none;
+}
+.projects-card__project h3 a:hover{
+  text-decoration: underline;
+}
+.projects-card__project--year{
+  font-size: 12px;
+  color: #555;
+  white-space: nowrap;
+}
+.projects-card__project p{
+  margin: 6px 0 8px;
+}
+.projects-card__project--tags{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+}
+.projects-card__project--tags .skills-card__skills--element{
+  font-size: 12px;
+  font-weight: normal;
+  cursor: default;
+  margin: 3px 6px 3px 0;
+}
+.projects-card__project--tags .skills-card__skills--element:hover{
+  transform: none;
+}
+
+/* EDUCATION-CARD */
+.education-card__list{
+  padding: 20px;
+}
+.education-card__education h5{
+  margin: 0;
+  font-size: 15px;
+}
+.education-card__education a{
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+}
+.education-card__education p{
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #555;
 }
 
 /* EXPERIENCE-CARD */
@@ -286,43 +323,3 @@
 .footer a:hover{
   color: white;
 }
-
-/* PROJECT MODAL */
-.project-modal{
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background: rgba(0,0,0,0.6);
-}
-.project-modal__content{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  background-color: white;
-  padding: 20px;
-  display: flex;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  align-items: center;
-}
-.project-modal__content--image{
-  flex:1;
-  
-}
-.project-modal__content--image img{
-  width: 100%;
-}
-
-.project-modal__content--description{
-  flex:2;
-  padding: 0px 10px;
-}
-.project-modal__content--description h1{
-  font-size: 25px;
-}
-.project-modal__content--description p{
-  text-align: justify;
-}
-  

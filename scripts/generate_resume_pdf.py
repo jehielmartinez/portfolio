@@ -50,8 +50,8 @@ ROOT = Path(__file__).resolve().parent.parent
 RESUME_TS = ROOT / "src" / "assets" / "resume.ts"
 OUTPUT_PDF = ROOT / "src" / "assets" / "Jehiel_Martinez_Resume.pdf"
 
-# Online-course providers we don't list under formal Education (kept off the
-# resume to avoid clutter; the formal degree is what matters).
+# Only formal degrees belong on the PDF; online-course providers are skipped
+# if they ever reappear in the data.
 ONLINE_PROVIDERS = {"Platzi", "Udemy", "FreeCodeCamp"}
 
 # Brand accent (matches the website's accent colour).
@@ -109,55 +109,11 @@ def extract_resume_object(raw: str) -> str:
     raise ValueError("Could not find the end of the resume object in resume.ts")
 
 
-def parse_skill_groups(obj_src: str) -> list[tuple[str, list[str]]]:
-    """Recover the `// Group` headers + skills from the skills array.
-
-    json5 drops comments, so we read the skills block from the resume object
-    source to keep the website's grouping (Languages / Frontend / Backend / ...).
-    `obj_src` must be the resume object literal (not the whole file) so we don't
-    match the `skills: string[]` field in the TypeScript interface.
-    """
-    raw = obj_src
-    block_start = raw.index("[", raw.index("skills:"))
-    # find matching close bracket
-    depth = 0
-    end = block_start
-    for k in range(block_start, len(raw)):
-        if raw[k] == "[":
-            depth += 1
-        elif raw[k] == "]":
-            depth -= 1
-            if depth == 0:
-                end = k
-                break
-    block = raw[block_start + 1 : end]
-
-    groups: list[tuple[str, list[str]]] = []
-    current = "Skills"
-    items: list[str] = []
-    for line in block.splitlines():
-        s = line.strip()
-        if not s:
-            continue
-        if s.startswith("//"):
-            if items:
-                groups.append((current, items))
-                items = []
-            current = s.lstrip("/ ").strip()
-            continue
-        m = re.search(r"""['"]([^'"]+)['"]""", s)
-        if m:
-            items.append(m.group(1))
-    if items:
-        groups.append((current, items))
-    return groups
-
-
 def load_resume() -> tuple[dict, list[tuple[str, list[str]]]]:
     raw = RESUME_TS.read_text(encoding="utf-8")
     obj_src = extract_resume_object(raw)
     data = json5.loads(obj_src)
-    skill_groups = parse_skill_groups(obj_src)
+    skill_groups = [(g["name"], list(g.get("items", []))) for g in data.get("skills", [])]
     return data, skill_groups
 
 
@@ -236,6 +192,10 @@ def build_styles() -> dict[str, ParagraphStyle]:
         "bullet", parent=base, fontName="Helvetica", fontSize=9.1,
         leading=12.3, textColor=INK, leftIndent=12, bulletIndent=2,
         spaceAfter=1.5,
+    )
+    s["project"] = ParagraphStyle(
+        "project", parent=base, fontName="Helvetica", fontSize=9.1,
+        leading=12.3, textColor=INK, spaceAfter=4,
     )
     s["edu"] = ParagraphStyle(
         "edu", parent=base, fontName="Helvetica", fontSize=9.3,
@@ -354,7 +314,10 @@ def build_pdf(data: dict, skill_groups, styles) -> None:
                             spaceBefore=0, spaceAfter=2))
 
     # ---- Summary ----
-    if data.get("about"):
+    if data.get("summary"):
+        story += section_header("Summary", styles)
+        story.append(Paragraph(rich(data["summary"]), styles["summary"]))
+    elif data.get("about"):
         story += section_header("Summary", styles)
         for para in data["about"]:
             story.append(Paragraph(rich(para), styles["summary"]))
@@ -370,12 +333,35 @@ def build_pdf(data: dict, skill_groups, styles) -> None:
                 styles["skillgroup"],
             ))
 
-    # ---- Experience ----
+    # ---- Experience (employment), then founder ventures ----
     visible = [j for j in data.get("experience", []) if not j.get("hidden")]
-    if visible:
+    employment = [j for j in visible if not j.get("venture")]
+    ventures = [j for j in visible if j.get("venture")]
+    if employment:
         story += section_header("Experience", styles)
-        for job in visible:
+        for job in employment:
             story += experience_block(job, styles, content_width)
+    if ventures:
+        story += section_header("Founder Ventures", styles)
+        for job in ventures:
+            story += experience_block(job, styles, content_width)
+
+    # ---- Selected projects ----
+    projects = data.get("projects", [])
+    if projects:
+        story += section_header("Selected Projects", styles)
+        for pr in projects:
+            name = su.escape(pr["name"])
+            if pr.get("link"):
+                name = f'<a href="{pr["link"]}"><font color="#2A4B8D">{name}</font></a>'
+            year = f' <font color="#777777">({su.escape(str(pr["year"]))})</font>' if pr.get("year") else ""
+            tags = ""
+            if pr.get("tags"):
+                tags = ' <font color="#777777">· ' + su.escape(", ".join(pr["tags"])) + "</font>"
+            story.append(Paragraph(
+                f"<b>{name}</b>{year}{tags}<br/>{rich(pr.get('description', ''))}",
+                styles["project"],
+            ))
 
     # ---- Certifications (the website's Badges) ----
     badges = data.get("badges", [])

@@ -8,7 +8,7 @@ interface BadgesProps {
 
 export default function Badges({ badges = [] }: BadgesProps): JSX.Element {
   return (
-    <section className="mycard skills-card">
+    <section className="mycard badges-card">
       <div className="mycard__header">
         <h2>
           <FontAwesomeIcon icon={faCertificate} /> Certifications

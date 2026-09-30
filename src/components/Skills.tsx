@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
+import { SkillGroupType } from '../assets/resume';
 
 interface SkillsProps {
-  skills?: string[]; // Define the type for the skills prop, which is an optional array of strings
+  skills?: SkillGroupType[];
 }
 
 export default function Skills({ skills = [] }: SkillsProps): JSX.Element {
@@ -13,10 +14,17 @@ export default function Skills({ skills = [] }: SkillsProps): JSX.Element {
           <FontAwesomeIcon icon={faCode} /> Skills
         </h2>
       </div>
-      <div className="skills-card__skills">
-        {skills.map((skill, index) => (
-          <div className="skills-card__skills--element" key={index}>
-            {skill}
+      <div className="skills-card__groups">
+        {skills.map((group) => (
+          <div className="skills-card__group" key={group.name}>
+            <h4 className="skills-card__group--name">{group.name}</h4>
+            <div className="skills-card__skills">
+              {group.items.map((skill) => (
+                <div className="skills-card__skills--element" key={skill}>
+                  {skill}
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
