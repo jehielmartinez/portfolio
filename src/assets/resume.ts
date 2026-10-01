@@ -74,7 +74,7 @@ const resume: ResumeType = {
     location: 'San Pedro Sula, Honduras · Remote, CST (UTC-6)',
     email: 'jehielmartinez@gmail.com',
     phone: '',
-    website: 'https://www.jehielmartinez.com',
+    website: 'https://jehielmartinez.com',
     github: 'jehielmartinez',
     dev: 'jehielmartinez',
     linkedin: 'jehielmartinez'

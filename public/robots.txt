@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-# Markdown version of this résumé for LLMs: https://www.jehielmartinez.com/llms.txt
+# Markdown version of this résumé for LLMs: https://jehielmartinez.com/llms.txt
