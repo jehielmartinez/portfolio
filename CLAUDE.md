@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 - `npm run dev` — start the Vite dev server
-- `npm run build` — type-check (`tsc -b`) then build for production into `dist/`
+- `npm run build` — type-check (`tsc -b`), build the client into `dist/`, then build `src/entry-server.tsx` and run `scripts/prerender.js` to bake the rendered HTML into `dist/index.html` and write `dist/llms.txt` + `dist/resume.pdf`
 - `npm run lint` — run ESLint over the repo
 - `npm run preview` — serve the production build locally
 
@@ -27,5 +27,6 @@ When adding a new section: add its interface and data to `resume.ts`, add the fi
 
 ## Notes
 
+- The page is **prerendered at build time** so crawlers and LLMs that don't run JS see the full content. `src/entry-server.tsx` renders `<App />` to a string and also generates the head meta tags, JSON-LD (`Person`), and the `/llms.txt` markdown résumé from `resume.ts`; `scripts/prerender.js` injects them into the `<!--app-head-->`/`<!--app-html-->` placeholders in `index.html`. `main.tsx` hydrates when prerendered markup exists (in `npm run dev` it's empty and renders fresh). Components must stay SSR-safe: no `window`/`document` access during render.
 - TypeScript is strict with `noUnusedLocals`/`noUnusedParameters` — `npm run build` fails on unused code, so commented-out imports must also be commented or removed.
 - Static assets the resume references live in `public/images/`; bundled assets (resume PDF, icons) live in `src/assets/`.
